@@ -198,7 +198,7 @@ fun MainScreen(
                     )
                 }
                 for (info in items0) BuildDrawerItem(info)
-                HorizontalDivider()
+//                HorizontalDivider()
                 val items1 = remember {
                     persistentListOf(
                         DrawerItemInfo(R.string.menu_log, R.drawable.bug_report, NavRoutes.LOG),
@@ -215,7 +215,7 @@ fun MainScreen(
                     )
                 }
                 for (info in items1) BuildDrawerItem(info)
-                HorizontalDivider()
+//                HorizontalDivider()
                 NavigationDrawerItem(
                     label = { Text(stringResource(R.string.document)) },
                     selected = false,
@@ -237,43 +237,43 @@ fun MainScreen(
                         NavRoutes.ABOUT,
                     ),
                 )
-                Spacer(Modifier.height(24.dp))
-                HorizontalDivider()
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(NavigationDrawerItemDefaults.ItemPadding),
-                    horizontalArrangement = Arrangement.End,
-                ) {
-                    val tooltipState = rememberTooltipState()
-                    TooltipBox(
-                        positionProvider = TooltipDefaults.rememberTooltipPositionProvider(
-                            TooltipAnchorPosition.Above,
-                        ),
-                        tooltip = {
-                            PlainTooltip {
-                                Text(stringResource(R.string.close))
-                            }
-                        },
-                        state = tooltipState,
-                    ) {
-                        IconButton(
-                            onClick = {
-                                scope.launch {
-                                    drawerState.close()
-                                }
-                            },
-                            modifier = Modifier.size(56.dp),
-                        ) {
-                            Icon(
-                                imageVector = ImageVector.vectorResource(R.drawable.fast_rewind),
-                                contentDescription = stringResource(R.string.close),
-                                tint = MaterialTheme.colorScheme.primary,
-                                modifier = Modifier.size(28.dp),
-                            )
-                        }
-                    }
-                }
+//                Spacer(Modifier.height(24.dp))
+//                HorizontalDivider()
+//                Row(
+//                    modifier = Modifier
+//                        .fillMaxWidth()
+//                        .padding(NavigationDrawerItemDefaults.ItemPadding),
+//                    horizontalArrangement = Arrangement.End,
+//                ) {
+//                    val tooltipState = rememberTooltipState()
+//                    TooltipBox(
+//                        positionProvider = TooltipDefaults.rememberTooltipPositionProvider(
+//                            TooltipAnchorPosition.Above,
+//                        ),
+//                        tooltip = {
+//                            PlainTooltip {
+//                                Text(stringResource(R.string.close))
+//                            }
+//                        },
+//                        state = tooltipState,
+//                    ) {
+//                        IconButton(
+//                            onClick = {
+//                                scope.launch {
+//                                    drawerState.close()
+//                                }
+//                            },
+//                            modifier = Modifier.size(56.dp),
+//                        ) {
+//                            Icon(
+//                                imageVector = ImageVector.vectorResource(R.drawable.fast_rewind),
+//                                contentDescription = stringResource(R.string.close),
+//                                tint = MaterialTheme.colorScheme.primary,
+//                                modifier = Modifier.size(28.dp),
+//                            )
+//                        }
+//                    }
+//                }
             }
         },
     ) {
