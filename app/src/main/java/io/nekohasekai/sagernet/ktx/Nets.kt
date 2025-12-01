@@ -75,6 +75,12 @@ fun String.isIPv6(): Boolean {
     return regV6.matches(addr)
 }
 
+fun String.isDomain(): Boolean {
+    if (this.length > 253) return false
+    return Regex("^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,63}$")
+        .matches(this)
+}
+
 // [2001:4860:4860::8888] -> 2001:4860:4860::8888
 fun String.unwrapIPV6Host(): String {
     if (startsWith("[") && endsWith("]")) {

@@ -67,6 +67,7 @@ import io.nekohasekai.sagernet.ktx.asMap
 import io.nekohasekai.sagernet.ktx.blankAsNull
 import io.nekohasekai.sagernet.ktx.defaultOr
 import io.nekohasekai.sagernet.ktx.gson
+import io.nekohasekai.sagernet.ktx.isDomain
 import io.nekohasekai.sagernet.ktx.isExpert
 import io.nekohasekai.sagernet.ktx.isIpAddress
 import io.nekohasekai.sagernet.ktx.listByLineOrComma
@@ -206,7 +207,7 @@ fun buildConfig(
             }.toHashSet().toList(),
         ).associateBy { it.id }
     val userDNSRuleList = mutableListOf<JSONMap>()
-    val domainListDNSDirectForce = mutableListOf<String>()
+    val domainListDNSDirectForce = mutableListOf<String>("crypto.cloudflare.com")
     val bypassDNSBeans = hashSetOf<AbstractBean>()
     val isVPN = DataStore.serviceMode == Key.MODE_VPN
     val bind = if (!forTest && DataStore.allowAccess) "0.0.0.0" else LOCALHOST4
@@ -898,8 +899,12 @@ fun buildConfig(
                 }
             }
 
-            if (!serverAddr.isIpAddress()) {
+            if (serverAddr.isDomain()) {
                 domainListDNSDirectForce.add(serverAddr)
+            }
+
+            if (it is StandardV2RayBean && it.ech && it.sni.isNotEmpty() && it.sni != serverAddr) {
+                domainListDNSDirectForce.add(it.sni)
             }
         }
 

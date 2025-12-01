@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">husi</string>
-    <string name="app_name_long">husi for Android</string>
+    <string name="app_name" translatable="false">VPN</string>
+    <string name="app_name_long" translatable="false">VPN for Android</string>
     <string name="app_desc">The universal proxy toolchain for Android, written in Kotlin.</string>
     <string name="project">Project</string>
     <string name="github">Source code</string>
@@ -693,6 +693,7 @@
     <string name="saved_to_download">File has saved to Download directory.</string>
     <string name="network_interfaces">Network Interfaces</string>
     <string name="bypass_icmp">Bypass iCMP</string>
+    <string name="bypass_fmc">Bypass FCM</string>
     <string name="connection_status">Connection Status</string>
     <string name="connection_status_active">Active</string>
     <string name="connection_status_closed">Closed</string>

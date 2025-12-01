@@ -154,6 +154,14 @@ object ProfileManager {
                 )
                 createRule(
                     RuleEntity(
+                        action = ACTION_ROUTE,
+                        name = repo.getString(R.string.bypass_fmc),
+                        domains = "set+dns:geosite-googlefcm",
+                        outbound = RuleEntity.OUTBOUND_DIRECT,
+                    )
+                )
+                createRule(
+                    RuleEntity(
                         name = repo.getString(R.string.route_opt_block_quic),
                         action = ACTION_REJECT,
                         protocol = setOf("quic"),
